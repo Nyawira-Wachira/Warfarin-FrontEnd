@@ -1,7 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-const routes: Routes = [];
+import { ReceptionComponentComponent } from './components/reception-component/reception-component.component';
+
+const routes: Routes = [
+  {
+    path:'',component:ReceptionComponentComponent
+}
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
