@@ -1,0 +1,8 @@
+#bg{
+    background-image: url("src/assets/images/nurse.jpeg");
+    background-size: cover;
+    background-position: center;
+    height: 1000px;
+    width: 100%;
+
+}
