@@ -1,0 +1,26 @@
+#bg{
+    background-image: url("src/assets/images/med5.jpg");
+    background-size: cover;
+    background-position: center;
+    height: 1000px;
+    width: 100%;
+
+}
+.lab{
+    text-align: center;
+    font-family: Oleo Script Swash Caps, cursive;
+    font-size:30px;
+    margin-top: 50%;
+    color: white;
+
+}
+#patnam{
+    width: 50%;
+}
+#ran{
+    color: white;
+
+}
+#sub{
+    margin-top: 30%;
+}
