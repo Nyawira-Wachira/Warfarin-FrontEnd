@@ -9,13 +9,14 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { HomeComponent } from './components/home/home.component';
 import { NurseComponent } from './components/nurse/nurse.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ReceptionComponentComponent } from './components/reception-component/reception-component.component';
 import { DateCountPipe } from './date-count.pipe';
 import { StrikethroughDirective } from './strikethrough.directive';
 import { ReceptionFormComponent } from './components/reception-form/reception-form.component';
 import { LabFormComponent } from './components/lab-form/lab-form.component';
 import { LabComponentComponent } from './components/lab-component/lab-component.component';
+import { ReceptionTableComponent } from './components/reception-table/reception-table.component';
 
 
 @NgModule({
@@ -32,13 +33,15 @@ import { LabComponentComponent } from './components/lab-component/lab-component.
     StrikethroughDirective,
     ReceptionFormComponent,
     LabFormComponent,
-    LabComponentComponent
+    LabComponentComponent,
+    ReceptionTableComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
 
 
   ],

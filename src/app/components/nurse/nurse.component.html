@@ -1,28 +1,62 @@
-<div class="container" id="bg">
-    <div class="d-flex justify-content-center form_container">
-        <form>
-            <h2 align="center"style="font-family: Oleo Script Swash Caps, cursive;font-size: 40px;">Nurse</h2>
-            <div class="mb-3 mt-4">
-                <label for="exampleInputEmail1" class="form-label">Temperature</label>
-                <input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                <div id="emailHelp" class="form-text"></div>
-            </div>
-            <div class="mb-3">
-            <label for="" class="form-label">Blood Pressure</label>
-            <input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-            <div id="emailHelp" class="form-text"></div>
-            </div>
-            <div class="mb-3">
-            <label for="" class="form-label">Height</label>
-            <input type="number"  class="form-control" id="exampleInputPassword1">
-            </div>
-            <div class="mb-3">
-                <label for="" class="form-label">Weight</label>
-                <input type="number" class="form-control" id="exampleInputPassword1">
-            </div>
-            
-            <button type="submit" class="btn btn-primary">Submit</button><br><br>
-        </form>
+<div class="card">
+    <div class="container" id="bg">
+        <div class="d-flex justify-content-center form_container">
+            <form [formGroup]="userForm">
+                <div class="mt-5 box">
+                    <h2>Nurse</h2>
+                    <div class="mb-3 mt-4">
+                        <label for="exampleInputEmail1" class="form-label">Temperature</label>
+                        <input type="number" class="form-control" formControlName="temperature" id="exampleInputEmail1" aria-describedby="emailHelp">
+                        <div id="emailHelp" class="form-text"></div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="" class="form-label">Blood_Pressure</label>
+                        <input type="number" class="form-control" formControlName="blood_pressure" id="exampleInputEmail1" aria-describedby="emailHelp">
+                        <div id="emailHelp" class="form-text"></div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="" class="form-label">Height</label>
+                        <input type="number" class="form-control" formControlName="height" id="exampleInputPassword1">
+                    </div>
+                    <div class="mb-3">
+                        <label for="" class="form-label">Weight</label>
+                        <input type="number" class="form-control"  formControlName="weight" id="exampleInputPassword1">
+                    </div>
+                    <div class="row">
+                        <div class="col-6">
+                            <button type="submit" class="btn btn-primary" (click)="addItem()">Add</button>
+                        </div>
+                        <div class="col-6">
+                            <button type="reset" class="btn btn-primary" (click)="reset()">Reset</button><br><br>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
     </div>
 </div>
 
+<div class="col-md-8 mt-5">
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Temperature</th>
+                <th>Blood_Pressure</th>
+                <th>Height</th>
+                <th>Weight</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of listData">
+                <td><span>{{item.temperature}}</span></td>
+                <td><span>{{item.blood_pressure}}</span></td>
+                <td><span>{{item.height}}</span></td>
+                <td><span>{{item.weight}}</span></td>
+                <td><button type="reset" class="btn btn-primary" (click)="removeItem(item)">Remove</button></td>
+
+            </tr>
+
+        </tbody>
+    </table>
+</div>

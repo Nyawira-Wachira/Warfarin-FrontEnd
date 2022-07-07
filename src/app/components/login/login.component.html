@@ -5,7 +5,7 @@
     <div class="row">
       <div class="col-md-12">
         <form >
-          <h2 align="center"style="font-family: Oleo Script Swash Caps, cursive;font-size:30px;">Login</h2>
+          <h2>Login</h2>
             <div class="mb-3">
               <label for="exampleInputEmail1" class="form-label">Email</label>
               <input type="email" [(ngModel)]="email"  name="email"  class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
@@ -19,7 +19,6 @@
             <button type="submit" (click)="login()"  class="btn btn-primary">Login</button><br><br>
             <p><small>Don't Have an account? <a [routerLink]="['/register']" class="ml-2">Sign up</a></small></p>
           </form>
-
       </div>
     </div>
     
