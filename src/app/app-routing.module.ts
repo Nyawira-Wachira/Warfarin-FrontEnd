@@ -9,6 +9,7 @@ import { ReceptionFormComponent } from './components/reception-form/reception-fo
 import { AdminComponent } from './admin/admin/admin.component';
 import { NurseregisterComponent } from './admin/register/nurseregister/nurseregister.component';
 // import { ReceptionComponentComponent } from './components/reception-component/reception-component.component';
+import { ReceptionComponentComponent } from './components/reception-component/reception-component.component';
 
 
 const routes: Routes = [
@@ -18,6 +19,7 @@ const routes: Routes = [
 {path:'login', component: LoginComponent},
 {path:'nurse', component: NurseComponent},
 {path:'lab', component: LabFormComponent},
+{path:'reception2', component: ReceptionComponentComponent},
 {path: 'admin', component: AdminComponent, 
 children:[
   {
@@ -26,6 +28,7 @@ children:[
   }
 ]
 }
+
 ];
 
 @NgModule({

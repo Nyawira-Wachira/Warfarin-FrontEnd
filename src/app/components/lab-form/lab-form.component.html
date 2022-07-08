@@ -1,4 +1,93 @@
-<div class="card">
+<div class="col-md-8 mt-5">
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>INR_Range</th>
+
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of listData">
+                <td><span>{{item.inr_range}}</span></td>
+
+                <td><button type="reset" class="btn btn-primary" (click)="removeItem(item)">Remove</button></td>
+
+
+
+            </tr>
+
+        </tbody>
+    </table>
+</div>
+
+ <button class="btn btn-lg btn-outline-warning" data-bs-toggle="modal" data-bs-target="#updateModal">Update</button>
+
+ <div class="modal fade" id="updateModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">LABORATORY</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+
+            <form [formGroup]="userForm">
+                <div class="mt-5 box">
+                    <!-- <h2>Nurse</h2> -->
+                    <div class="mb-3 mt-4">
+                        <label for="exampleInputEmail1" class="form-label">INR_Range</label>
+                        <input type="number" class="form-control" formControlName="inr_range" id="exampleInputEmail1" aria-describedby="emailHelp">
+                        <div id="emailHelp" class="form-text"></div>
+                    </div>
+
+
+
+                    <div class="row">
+                        <div class="col-6">
+                            <button type="submit" class="btn btn-primary" (click)="addItem()">Add</button>
+                        </div>
+                        <div class="col-6">
+                            <button type="reset" class="btn btn-primary" (click)="reset()">Reset</button><br><br>
+                        </div>
+                    </div>
+                </div>
+            </form>
+
+          
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        
+          </div>
+        </div>
+      </div>
+    </div>
+
+  
+ 
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ <!-- <div class="card">
 <div class="container-fluid" id="bg">
 
     <div class="d-flex justify-content-center form_container">
@@ -16,4 +105,4 @@
         </form>
             </div>
         </div>
-</div>
+</div> -->
