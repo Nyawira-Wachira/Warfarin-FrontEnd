@@ -2,19 +2,21 @@ import { Injectable } from '@angular/core';
 import {HttpClient } from '@angular/common/http'
 import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
+import { BASE_URL } from '../utils/constants';
 
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  login_url= 'https://solutionmakersapi.herokuapp.com/api/signin/'
-  profile_url='https://solutionmakersapi.herokuapp.com/api/profile/'
+  login_url= `${BASE_URL}api/signin/`
+  profile_url=`${BASE_URL}api/profile/`
 
 
   constructor(private http:HttpClient, private router:Router)  { 
   } 
   login (usercredentials:any) :Observable<any> {
+    console.log(usercredentials)
     return this.http.post(this.login_url,{
      ...usercredentials
     }).pipe(response => response)
@@ -31,6 +33,7 @@ export class AuthService {
 
   }
   fetchuser(token:any){
+    console.log(token)
 
       console.log(token)
       this.http.get(this.profile_url,{
@@ -41,6 +44,7 @@ export class AuthService {
         console.log(res)
         this.saveuser(res)
         const login_status=this.getloginstatus()
+        console.log(login_status)
         if (login_status){
           this.redirecttotherightpage()
         }
@@ -73,15 +77,34 @@ export class AuthService {
 
      redirecttotherightpage():void{
        const login_status=this.getloginstatus()
-       const user = this.getuserdetails()
-       if (user.is_nurse){
+       const {user} = this.getuserdetails()
+      
+       if (user?.is_nurse){
         this.router.navigate(['/nurse'])
        }
-       if (user.is_receptionist){
+       else if (user?.is_receptionist){
+        this.router.navigate(['/reception'])
+       }
+       else if (user?.is_superuser){
         this.router.navigate(['/register'])
        }
-           
+       else {
+        this.router.navigate(['/login'])
+       }
+
+     } 
+
+     logout(): any {
+       const localStorage = window.localStorage
+       localStorage.removeItem('user')
+       localStorage.removeItem('userdetails')
+       this.redirecttotherightpage()
      }
+
+
+
+
+
 
 
 

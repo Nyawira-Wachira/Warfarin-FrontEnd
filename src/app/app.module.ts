@@ -17,6 +17,8 @@ import { ReceptionFormComponent } from './components/reception-form/reception-fo
 import { LabFormComponent } from './components/lab-form/lab-form.component';
 import { LabComponentComponent } from './components/lab-component/lab-component.component';
 import { ReceptionTableComponent } from './components/reception-table/reception-table.component';
+import { AdminComponent } from './admin/admin/admin.component';
+import { NurseregisterComponent } from './admin/register/nurseregister/nurseregister.component';
 
 
 @NgModule({
@@ -34,7 +36,9 @@ import { ReceptionTableComponent } from './components/reception-table/reception-
     ReceptionFormComponent,
     LabFormComponent,
     LabComponentComponent,
-    ReceptionTableComponent
+    ReceptionTableComponent,
+    AdminComponent,
+    NurseregisterComponent
   ],
   imports: [
     BrowserModule,

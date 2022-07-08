@@ -1,5 +1,3 @@
-
-
 <div class="col-md-8 mt-5">
     <table class="table table-bordered">
         <thead>
@@ -18,24 +16,14 @@
                 <td><span>{{item.height}}</span></td>
                 <td><span>{{item.weight}}</span></td>
                 <td><button type="reset" class="btn btn-primary" (click)="removeItem(item)">Remove</button></td>
-
-
-
             </tr>
-
         </tbody>
     </table>
 </div>
 
  <button class="btn btn-lg btn-outline-warning" data-bs-toggle="modal" data-bs-target="#updateModal">Update</button> 
 
-
-
-
-        
-
-
-    <!-- Test modal -->
+    <!-- Modal -->
     <div class="modal fade" id="updateModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
           <div class="modal-content">
@@ -47,7 +35,6 @@
 
                 <form [formGroup]="userForm">
                     <div class="mt-5 box">
-                        <!-- <h2>Nurse</h2> -->
                         <div class="mb-3 mt-4">
                             <label for="exampleInputEmail1" class="form-label">Temperature</label>
                             <input type="number" class="form-control" formControlName="temperature" id="exampleInputEmail1" aria-describedby="emailHelp">
@@ -75,13 +62,10 @@
                             </div>
                         </div>
                     </div>
-                </form>
-
-              
+                </form>              
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>            
               </div>
             </div>
           </div>

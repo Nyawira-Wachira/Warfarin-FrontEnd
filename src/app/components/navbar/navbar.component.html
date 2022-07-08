@@ -18,8 +18,9 @@
         </li>
       </ul>
       <div class="d-flex">
-        <a class="nav-link active" aria-current="page" [routerLink]="['/login']">Login</a>
-        <a class="nav-link active" aria-current="page" [routerLink]="['/register']">Register</a>
+        <a class="nav-link active"  *ngIf="!loggedinstatus"  aria-current="page" [routerLink]="['/login']">Login</a>
+        <a class="nav-link active"   *ngIf="!loggedinstatus" aria-current="page" [routerLink]="['/register']">Register</a>
+        <button class="btn btn-small shadow-none px-3 ms-2"  *ngIf="loggedinstatus" (click)="logout()">Logout</button>
 
       </div>
     </div>

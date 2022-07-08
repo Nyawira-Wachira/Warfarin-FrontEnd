@@ -6,7 +6,10 @@ import { NurseComponent } from './components/nurse/nurse.component';
 import { RegisterComponent } from './components/register/register.component';
 import { LabFormComponent } from './components/lab-form/lab-form.component';
 import { ReceptionFormComponent } from './components/reception-form/reception-form.component';
+import { AdminComponent } from './admin/admin/admin.component';
+import { NurseregisterComponent } from './admin/register/nurseregister/nurseregister.component';
 // import { ReceptionComponentComponent } from './components/reception-component/reception-component.component';
+
 
 const routes: Routes = [
 {path:'', component: HomeComponent},
@@ -15,7 +18,14 @@ const routes: Routes = [
 {path:'login', component: LoginComponent},
 {path:'nurse', component: NurseComponent},
 {path:'lab', component: LabFormComponent},
-
+{path: 'admin', component: AdminComponent, 
+children:[
+  {
+    path:'register/nurseregister',
+    component: NurseregisterComponent
+  }
+]
+}
 ];
 
 @NgModule({
