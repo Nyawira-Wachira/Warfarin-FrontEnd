@@ -40,7 +40,12 @@ export class NurseComponent implements OnInit {
 
      })
 
+     
+     
+
+
    }
+
 
   ngOnInit(): void {
   }
