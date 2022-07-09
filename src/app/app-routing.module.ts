@@ -8,8 +8,10 @@ import { LabFormComponent } from './components/lab-form/lab-form.component';
 import { ReceptionFormComponent } from './components/reception-form/reception-form.component';
 import { AdminComponent } from './admin/admin/admin.component';
 import { NurseregisterComponent } from './admin/register/nurseregister/nurseregister.component';
-// import { ReceptionComponentComponent } from './components/reception-component/reception-component.component';
 import { ReceptionComponentComponent } from './components/reception-component/reception-component.component';
+import { ReceptionregisterComponent } from './admin/register/receptionregister/receptionregister.component';
+import { LabtechregisterComponent } from './admin/register/labtechregister/labtechregister.component';
+import { DoctorregisterComponent } from './admin/register/doctorregister/doctorregister.component';
 
 
 const routes: Routes = [
@@ -23,8 +25,20 @@ const routes: Routes = [
 {path: 'admin', component: AdminComponent, 
 children:[
   {
+    path:'register/receptionregister',
+    component: ReceptionregisterComponent
+  },
+  {
     path:'register/nurseregister',
     component: NurseregisterComponent
+  },
+  {
+    path:'register/labtechregister',
+    component: LabtechregisterComponent
+  },
+  {
+    path:'register/doctorregister',
+    component: DoctorregisterComponent
   }
 ]
 }

@@ -19,6 +19,9 @@ import { LabComponentComponent } from './components/lab-component/lab-component.
 import { ReceptionTableComponent } from './components/reception-table/reception-table.component';
 import { AdminComponent } from './admin/admin/admin.component';
 import { NurseregisterComponent } from './admin/register/nurseregister/nurseregister.component';
+import { ReceptionregisterComponent } from './admin/register/receptionregister/receptionregister.component';
+import { LabtechregisterComponent } from './admin/register/labtechregister/labtechregister.component';
+import { DoctorregisterComponent } from './admin/register/doctorregister/doctorregister.component';
 
 
 @NgModule({
@@ -38,7 +41,10 @@ import { NurseregisterComponent } from './admin/register/nurseregister/nurseregi
     LabComponentComponent,
     ReceptionTableComponent,
     AdminComponent,
-    NurseregisterComponent
+    NurseregisterComponent,
+    ReceptionregisterComponent,
+    LabtechregisterComponent,
+    DoctorregisterComponent
   ],
   imports: [
     BrowserModule,
