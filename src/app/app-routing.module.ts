@@ -16,12 +16,11 @@ import { DoctorregisterComponent } from './admin/register/doctorregister/doctorr
 
 const routes: Routes = [
 {path:'', component: HomeComponent},
-{path:'reception',component:ReceptionFormComponent},
 {path:'register', component: RegisterComponent},
 {path:'login', component: LoginComponent},
 {path:'nurse', component: NurseComponent},
 {path:'lab', component: LabFormComponent},
-{path:'reception2', component: ReceptionComponentComponent},
+{path:'reception', component: ReceptionComponentComponent},
 {path: 'admin', component: AdminComponent, 
 children:[
   {
