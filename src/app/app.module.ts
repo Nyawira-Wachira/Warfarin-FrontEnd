@@ -12,11 +12,8 @@ import { NurseComponent } from './components/nurse/nurse.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ReceptionComponentComponent } from './components/reception-component/reception-component.component';
 import { DateCountPipe } from './date-count.pipe';
-import { StrikethroughDirective } from './strikethrough.directive';
-import { ReceptionFormComponent } from './components/reception-form/reception-form.component';
+
 import { LabFormComponent } from './components/lab-form/lab-form.component';
-import { LabComponentComponent } from './components/lab-component/lab-component.component';
-import { ReceptionTableComponent } from './components/reception-table/reception-table.component';
 import { AdminComponent } from './admin/admin/admin.component';
 import { NurseregisterComponent } from './admin/register/nurseregister/nurseregister.component';
 import { ReceptionregisterComponent } from './admin/register/receptionregister/receptionregister.component';
@@ -35,11 +32,7 @@ import { DoctorregisterComponent } from './admin/register/doctorregister/doctorr
     NurseComponent,
     ReceptionComponentComponent,
     DateCountPipe,
-    StrikethroughDirective,
-    ReceptionFormComponent,
     LabFormComponent,
-    LabComponentComponent,
-    ReceptionTableComponent,
     AdminComponent,
     NurseregisterComponent,
     ReceptionregisterComponent,
