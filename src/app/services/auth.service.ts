@@ -85,6 +85,12 @@ export class AuthService {
        else if (user?.is_receptionist){
         this.router.navigate(['/reception'])
        }
+       else if (user?.is_labtech){
+        this.router.navigate(['/lab'])
+       }
+       else if (user?.is_doctor){
+        this.router.navigate(['/register'])
+       }
        else if (user?.is_superuser){
         this.router.navigate(['/register'])
        }
@@ -93,7 +99,6 @@ export class AuthService {
        }
 
      } 
-
      logout(): any {
        const localStorage = window.localStorage
        localStorage.removeItem('user')
