@@ -89,7 +89,7 @@ export class AuthService {
         this.router.navigate(['/lab'])
        }
        else if (user?.is_doctor){
-        this.router.navigate(['/register'])
+        this.router.navigate(['/doctor'])
        }
        else if (user?.is_superuser){
         this.router.navigate(['/register'])

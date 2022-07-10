@@ -19,6 +19,7 @@ import { NurseregisterComponent } from './admin/register/nurseregister/nurseregi
 import { ReceptionregisterComponent } from './admin/register/receptionregister/receptionregister.component';
 import { LabtechregisterComponent } from './admin/register/labtechregister/labtechregister.component';
 import { DoctorregisterComponent } from './admin/register/doctorregister/doctorregister.component';
+import { DoctorComponent } from './components/doctor/doctor.component';
 
 
 @NgModule({
@@ -37,7 +38,8 @@ import { DoctorregisterComponent } from './admin/register/doctorregister/doctorr
     NurseregisterComponent,
     ReceptionregisterComponent,
     LabtechregisterComponent,
-    DoctorregisterComponent
+    DoctorregisterComponent,
+    DoctorComponent
   ],
   imports: [
     BrowserModule,

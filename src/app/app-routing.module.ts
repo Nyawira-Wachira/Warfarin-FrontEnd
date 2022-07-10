@@ -11,6 +11,8 @@ import { ReceptionComponentComponent } from './components/reception-component/re
 import { ReceptionregisterComponent } from './admin/register/receptionregister/receptionregister.component';
 import { LabtechregisterComponent } from './admin/register/labtechregister/labtechregister.component';
 import { DoctorregisterComponent } from './admin/register/doctorregister/doctorregister.component';
+import { DoctorComponent } from './components/doctor/doctor.component';
+
 
 
 const routes: Routes = [
@@ -20,6 +22,7 @@ const routes: Routes = [
 {path:'nurse', component: NurseComponent},
 {path:'lab', component: LabFormComponent},
 {path:'reception', component: ReceptionComponentComponent},
+{path:'doctor', component: DoctorComponent},
 {path: 'admin', component: AdminComponent, 
 children:[
   {
