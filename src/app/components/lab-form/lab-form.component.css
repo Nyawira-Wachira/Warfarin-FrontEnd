@@ -2,11 +2,11 @@
     background-image: url("src/assets/images/med5.jpg");
     background-size: cover;
     background-position: center;
-    height: 1000px;
+    height: 600px;
     width: 100%;
 
 }
-.lab{
+.recp{
     text-align: center;
     font-family: Oleo Script Swash Caps, cursive;
     font-size:30px;
