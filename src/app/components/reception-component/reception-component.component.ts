@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
-
 @Component({
-  selector: 'app-reception-component',
+  selector: 'app-Reception-Component',
   templateUrl: './reception-component.component.html',
   styleUrls: ['./reception-component.component.css']
 })
