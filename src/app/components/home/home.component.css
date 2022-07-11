@@ -1,0 +1,10 @@
+
+  body{
+    background-image: url('https://cdn.pixabay.com/photo/2021/02/03/23/09/hallway-5979689_960_720.jpg');
+    background-position: center;
+    background-size: cover; 
+    background-repeat: no-repeat;  
+    width: 100%;
+    height: 600px;
+   
+  }
