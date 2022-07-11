@@ -91,9 +91,9 @@ export class AuthService {
        else if (user?.is_doctor){
         this.router.navigate(['/doctor'])
        }
-       else if (user?.is_superuser){
-        this.router.navigate(['/register'])
-       }
+      //  else if (user?.is_superuser){
+      //   this.router.navigate(['/register'])
+      //  }
        else {
         this.router.navigate(['/login'])
        }
