@@ -2,4 +2,40 @@ h2{
     text-align:center;
     font-family: Oleo Script Swash Caps, cursive;
     font-size:30px;
+    color: #7BDFF2;
+
+}
+/* #bg{
+    background-color: pink;
+
+} */
+body {
+    position: relative;
+    font-weight: 700;
+    background-color: #FFE0E3;
+}
+
+/* #back{
+    height: 1000%;
+} */
+#loglog{
+    background-color: #FFE0E3;
+    /* background-size: cover; */
+
+
+}
+/* #mmm{
+    margin-left: 2%;
+    float: left;
+} */
+button{
+    background-color:#7BDFF2;
+    width: 100%;
+    border-radius: 20px;
+    color: whitesmoke;
+}
+
+#lmm{
+    font-family: 'Edu TAS Beginner', cursive;
+    font-size: 50px;
 }
