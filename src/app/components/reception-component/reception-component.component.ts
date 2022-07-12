@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
-  selector: 'app-reception-component',
+  selector: 'app-Reception-Component',
   templateUrl: './reception-component.component.html',
   styleUrls: ['./reception-component.component.css']
 })
@@ -22,36 +22,30 @@ export class ReceptionComponentComponent implements OnInit {
       email: ['', Validators.required],
       contacts: ['', Validators.required],
       gender: ['', Validators.required]
-     
+    
 
     })
-   }
+  }
 
-   public addItem() : void{
-     this.listData.push(this.userForm.value);
-     this.userForm.reset();
-   }
-
-   reset() {
+  public addItem() : void{
+    this.listData.push(this.userForm.value);
     this.userForm.reset();
-   }
+  }
 
-   removeItem(element){
-     this.listData.forEach((value,index)=>{
-      if(value == element)
-       this.listData.splice(index, 1);
+  reset() {
+    this.userForm.reset();
+  }
 
-     })
+  removeItem(element){
+      this.listData.forEach((value,index)=>{
+        if(value == element)
+        this.listData.splice(index, 1);
 
-   }
+    })
+
+  }
 
   ngOnInit(): void {
   }
 
 }
-
-
-
-
-
- 
