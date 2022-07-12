@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter} from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { PatientService } from 'src/app/services/patients/patient.service';
 
 @Component({
   selector: 'app-reception-component',
@@ -7,11 +8,11 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./reception-component.component.css']
 })
 export class ReceptionComponentComponent implements OnInit {
-
+ 
   userForm : FormGroup;
   listData : any;
 
-  constructor(private fb:FormBuilder) {
+  constructor(private fb:FormBuilder, private patientservice:PatientService) {
 
     this.listData = [];
 
@@ -30,6 +31,10 @@ export class ReceptionComponentComponent implements OnInit {
    public addItem() : void{
      this.listData.push(this.userForm.value);
      this.userForm.reset();
+     console.log(this.listData)
+     this.patientservice.registerpatient(this.listData[0]).subscribe(res=>{
+       console.log(res)
+     })
    }
 
    reset() {
@@ -46,7 +51,13 @@ export class ReceptionComponentComponent implements OnInit {
    }
 
   ngOnInit(): void {
+
+    this.patientservice.getpatients().subscribe(res=>{
+      this.listData=res?res:[]
+    })
   }
+
+
 
 }
 

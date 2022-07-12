@@ -75,6 +75,17 @@ export class AuthService {
 
      }
 
+     isadminonly(): void {
+      const {user} = this.getuserdetails()
+      if (user?.is_superuser) {
+        return 
+      }
+      else {
+        this.router.navigate(['/'])
+      }
+
+     }
+
      redirecttotherightpage():void{
        const login_status=this.getloginstatus()
        const {user} = this.getuserdetails()
@@ -91,9 +102,9 @@ export class AuthService {
        else if (user?.is_doctor){
         this.router.navigate(['/doctor'])
        }
-      //  else if (user?.is_superuser){
-      //   this.router.navigate(['/register'])
-      //  }
+       else if (user?.is_superuser){
+        this.router.navigate(['/admin'])
+       }
        else {
         this.router.navigate(['/login'])
        }

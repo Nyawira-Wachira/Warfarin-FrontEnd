@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { PatientService } from 'src/app/services/patients/patient.service';
 
 @Component({
   selector: 'app-nurse',
@@ -8,10 +9,12 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class NurseComponent implements OnInit {
 
+
   userForm : FormGroup;
   listData : any;
+  patient:any;
 
-  constructor(private fb:FormBuilder) {
+  constructor(private fb:FormBuilder ,private patientservice:PatientService) {
 
     this.listData = [];
 
@@ -40,14 +43,26 @@ export class NurseComponent implements OnInit {
 
      })
 
-     
-     
-
-
    }
 
 
   ngOnInit(): void {
+    this.patientservice.getpatients().subscribe(res=>{
+      this.listData=res?res:[]
+      console.log(res)
+    })
   }
+
+  update(patient_):void {
+    this.patient=null
+    this.patient=patient_
+    console.log(patient_)
+
+  }
+
+  getnumber(option:any):number {
+    return parseFloat(option)|| 0
+  }
+
 
 }

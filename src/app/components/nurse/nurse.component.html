@@ -1,80 +1,172 @@
 <div class="container">
-<div class="col-md-8 mt-5">
-    <table class="table table-bordered">
-        <thead>
-            <tr>
+  <div class="mt-5">
+    <div class="table-responsive w-100">
+        <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Residence</th>
+                <th>Email</th>
+                <th>Contacts</th>
+                <th>Gender</th>
                 <th>Temperature</th>
                 <th>Blood Pressure</th>
                 <th>Height</th>
                 <th>Weight</th>
-                <th></th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let item of listData">
-                <td><span>{{item.temperature}}</span></td>
-                <td><span>{{item.blood_pressure}}</span></td>
-                <td><span>{{item.height}}</span></td>
-                <td><span>{{item.weight}}</span></td>
-                <td><button type="reset" class="btn btn-primary" (click)="removeItem(item)">Remove</button></td>
-            </tr>
-        </tbody>
-    </table>
-</div>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of listData">
+                <td>
+                  <span>{{ item.full_name }}</span>
+                </td>
+                <td>
+                  <span>{{ item.age }}</span>
+                </td>
+                <td>
+                  <span>{{ item.email }}</span>
+                </td>
+                <td>
+                  <span>{{ item.residence }}</span>
+                </td>
+                <td>
+                  <span>{{ item.phone_number }}</span>
+                </td>
+                <td>
+                  <span>{{ item.gender }}</span>
+                </td>
+                <td>
+                  <span>{{ item.temparature }}</span>
+                </td>
+                <td>
+                  <span>{{ item.bp }}</span>
+                </td>
+                <td>
+                  <span>{{ item.height }}</span>
+                </td>
+                <td>
+                  <span>{{ item.weight }}</span>
+                </td>
+                <td>
+                    <button
+                    class="btn btn-lg btn-outline-warning"
+                    data-bs-toggle="modal"
+                    data-bs-target="#updateModal"
+                    (click)="update(item)"
+                  >
+                    Update
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+    </div>
+  </div>
 
- <button class="btn btn-lg btn-outline-warning" data-bs-toggle="modal" data-bs-target="#updateModal">Update</button> 
 
-    <!-- Modal -->
-    <div class="modal fade" id="updateModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Nurse Form</h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
 
-                <form [formGroup]="userForm">
-                    <div class="mt-5 box">
-                        <div class="mb-3 mt-4">
-                            <label for="exampleInputEmail1" class="form-label">Temperature</label>
-                            <input type="number" class="form-control" formControlName="temperature" id="exampleInputEmail1" aria-describedby="emailHelp">
-                            <div id="emailHelp" class="form-text"></div>
-                        </div>
-                        <div class="mb-3">
-                            <label for="" class="form-label">Blood_Pressure</label>
-                            <input type="number" class="form-control" formControlName="blood_pressure" id="exampleInputEmail1" aria-describedby="emailHelp">
-                            <div id="emailHelp" class="form-text"></div>
-                        </div>
-                        <div class="mb-3">
-                            <label for="" class="form-label">Height</label>
-                            <input type="number" class="form-control" formControlName="height" id="exampleInputPassword1">
-                        </div>
-                        <div class="mb-3">
-                            <label for="" class="form-label">Weight</label>
-                            <input type="number" class="form-control"  formControlName="weight" id="exampleInputPassword1">
-                        </div>
-                        <div class="row">
-                            <div class="col-6">
-                                <button type="submit" class="btn btn-primary" (click)="addItem()">Add</button>
-                            </div>
-                            <div class="col-6">
-                                <button type="reset" class="btn btn-primary" (click)="reset()">Reset</button><br><br>
-                            </div>
-                        </div>
-                    </div>
-                </form>              
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>            
+  <!-- Modal -->
+  <div
+    class="modal fade"
+    id="updateModal"
+    tabindex="-1"
+    aria-labelledby="exampleModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Nurse Form</h5>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="modal-body">
+          <form [formGroup]="userForm">
+            <div class="mt-5 box">
+              <div class="mb-3 mt-4">
+                <label for="exampleInputEmail1" class="form-label"
+                  >Temperature</label
+                >
+                <input
+                [value]="patient?.temparature"
+                  type="number"
+                  class="form-control"
+                  formControlName="temperature"
+                  id="exampleInputEmail1"
+                  aria-describedby="emailHelp"
+                />
+                <div id="emailHelp" class="form-text"></div>
+              </div>
+              <div class="mb-3">
+                <label for="" class="form-label">Blood_Pressure</label>
+                <input
+                [value]="patient?.bp"
+                  type="number"
+                  class="form-control"
+                  formControlName="blood_pressure"
+                  id="exampleInputEmail1"
+                  aria-describedby="emailHelp"
+                />
+                <div id="emailHelp" class="form-text"></div>
+              </div>
+              <div class="mb-3">
+                <label for="" class="form-label">Height</label>
+                <input
+                [value]="getnumber(patient?.height)"
+                  type="number"
+                  class="form-control"
+                  formControlName="height"
+                  id="exampleInputPassword1"
+                />
+              </div>
+              <div class="mb-3">
+                <label for="" class="form-label">Weight</label>
+                <input
+                [value]="getnumber(patient?.weight)"
+                  type="number"
+                  class="form-control"
+                  formControlName="weight"
+                  id="exampleInputPassword1"
+                />
+              </div>
+              <div class="row">
+                <div class="col-6">
+                  <button
+                    type="submit"
+                    class="btn btn-primary"
+                  >
+                    Update
+                  </button>
+                </div>
+                <div class="col-6">
+                  <button
+                    type="reset"
+                    class="btn btn-primary"
+                    (click)="reset()"
+                  >
+                    Reset</button
+                  ><br /><br />
+                </div>
               </div>
             </div>
-          </div>
+          </form>
         </div>
+        <div class="modal-footer">
+          <button
+            type="button"
+            class="btn btn-secondary"
+            data-bs-dismiss="modal"
+          >
+            Close
+          </button>
+        </div>
+      </div>
     </div>
-
-      
-
-
-
-
+  </div>
+</div>
