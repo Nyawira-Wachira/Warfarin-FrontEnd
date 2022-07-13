@@ -1,25 +1,70 @@
 <div class="container">
-<div class="col-md-8 mt-5">
+<div class="mt-5">
+    <div class="table-responsive w-100">
     <table class="table table-bordered">
         <thead>
             <tr>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Email</th>
+                <th>Residence</th>
+                <th>Contacts</th>
+                <th>Gender</th>
+                <th>Temperature</th>
+                <th>Blood Pressure</th>
+                <th>Height</th>
+                <th>Weight</th>
                 <th>INR Range</th>
+                <th>Action</th>
 
-                <th></th>
             </tr>
         </thead>
         <tbody>
             <tr *ngFor="let item of listData">
+                <td>
+                    <span>{{ item.full_name }}</span>
+                  </td>
+                  <td>
+                    <span>{{ item.age }}</span>
+                  </td>
+                  <td>
+                    <span>{{ item.email }}</span>
+                  </td>
+                  <td>
+                    <span>{{ item.residence }}</span>
+                  </td>
+                  <td>
+                    <span>{{ item.phone_number }}</span>
+                  </td>
+                  <td>
+                    <span>{{ item.gender }}</span>
+                  </td>
+                  <td>
+                    <span>{{ item.temparature }}</span>
+                  </td>
+                  <td>
+                    <span>{{ item.bp }}</span>
+                  </td>
+                  <td>
+                    <span>{{ item.height }}</span>
+                  </td>
+                  <td>
+                    <span>{{ item.weight }}</span>
+                  </td>
                 <td><span>{{item.inr_range}}</span></td>
+                <td>
+                    <button class="btn btn btn-outline-info" data-bs-toggle="modal" data-bs-target="#updateModal" (click)="update(item)">Update</button>
+                </td>
+                
 
-                <td><button type="reset" class="btn btn-primary" (click)="removeItem(item)">Remove</button></td>
+
+                <!-- <td><button type="reset" class="btn btn-primary" (click)="removeItem(item)">Remove</button></td> -->
             </tr>
 
         </tbody>
     </table>
 </div>
-
-<button class="btn btn-lg btn-outline-warning" data-bs-toggle="modal" data-bs-target="#updateModal">Update</button>
+</div>
 
 <div class="modal fade" id="updateModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -35,7 +80,9 @@
                 
                     <div class="mb-3 mt-4">
                         <label for="exampleInputEmail1" class="form-label">INR Range</label>
-                        <input type="number" class="form-control" formControlName="inr_range" id="exampleInputEmail1" aria-describedby="emailHelp">
+                        <input 
+                        [value]="getnumber(patient?.inr_range)"
+                        type="number" class="form-control" formControlName="inr_range" id="exampleInputEmail1" aria-describedby="emailHelp">
                         <div id="emailHelp" class="form-text"></div>
                     </div>
                     <div class="row">

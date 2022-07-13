@@ -1,13 +1,14 @@
-<div class="container">
+<div class="container" id="nurse">
   <div class="mt-5">
     <div class="table-responsive w-100">
-        <table class="table table-bordered">
+        <table class="table table-bordered" id="table">
             <thead>
               <tr>
+                <th>id</th>
                 <th>Name</th>
                 <th>Age</th>
-                <th>Residence</th>
                 <th>Email</th>
+                <th>Residence</th>
                 <th>Contacts</th>
                 <th>Gender</th>
                 <th>Temperature</th>
@@ -19,6 +20,9 @@
             </thead>
             <tbody>
               <tr *ngFor="let item of listData">
+                <td>
+                  <span>{{ item.id }}</span>
+                </td>
                 <td>
                   <span>{{ item.full_name }}</span>
                 </td>
@@ -51,7 +55,7 @@
                 </td>
                 <td>
                     <button
-                    class="btn btn-lg btn-outline-warning"
+                    class="btn btn btn-outline-info"
                     data-bs-toggle="modal"
                     data-bs-target="#updateModal"
                     (click)="update(item)"
@@ -64,8 +68,6 @@
           </table>
     </div>
   </div>
-
-
 
   <!-- Modal -->
   <div
@@ -97,7 +99,7 @@
                 [value]="patient?.temparature"
                   type="number"
                   class="form-control"
-                  formControlName="temperature"
+                  formControlName="temparature"
                   id="exampleInputEmail1"
                   aria-describedby="emailHelp"
                 />
@@ -109,7 +111,7 @@
                 [value]="patient?.bp"
                   type="number"
                   class="form-control"
-                  formControlName="blood_pressure"
+                  formControlName="bp"
                   id="exampleInputEmail1"
                   aria-describedby="emailHelp"
                 />

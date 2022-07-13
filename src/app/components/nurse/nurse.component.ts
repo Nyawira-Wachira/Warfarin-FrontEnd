@@ -19,8 +19,8 @@ export class NurseComponent implements OnInit {
     this.listData = [];
 
     this.userForm = this.fb.group({
-      temperature: ['', Validators.required],
-      blood_pressure: ['', Validators.required],
+      temparature: ['', Validators.required],
+      bp: ['', Validators.required],
       height: ['', Validators.required],
       weight: ['', Validators.required]
 
@@ -52,6 +52,8 @@ export class NurseComponent implements OnInit {
       console.log(res)
     })
   }
+
+  //  update/patient/{`id`}/
 
   update(patient_):void {
     this.patient=null

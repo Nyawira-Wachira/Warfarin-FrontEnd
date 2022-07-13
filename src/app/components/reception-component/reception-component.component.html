@@ -5,14 +5,14 @@
         <tr>
           <th>Name</th>
           <th>Age</th>
-          <th>Residence</th>
           <th>Email</th>
+          <th>Residence</th>
           <th>Contacts</th>
           <th>Gender</th>
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let item of listData">
+        <tr *ngFor="let item of patientData">
           <td>
             <span>{{ item.full_name }}</span>
           </td>
@@ -73,14 +73,15 @@
           ></button>
         </div>
         <div class="modal-body">
-          <form [formGroup]="userForm">
+          <form [formGroup]="form">
             <div class="mt-5 box">
               <div class="mb-3 mt-4">
                 <label for="exampleInputEmail1" class="form-label">Name</label>
                 <input
                   type="text"
                   class="form-control"
-                  formControlName="name"
+                   value=""
+                  formControlName="full_name"
                   id="exampleInputEmail1"
                   aria-describedby="emailHelp"
                 />
@@ -92,6 +93,7 @@
                   type="number"
                   class="form-control"
                   formControlName="age"
+                  
                   id="exampleInputEmail1"
                   aria-describedby="emailHelp"
                 />
@@ -102,6 +104,8 @@
                 <input
                   type="text"
                   class="form-control"
+                  value=""
+                  
                   formControlName="residence"
                   id="exampleInputPassword1"
                 />
@@ -111,6 +115,7 @@
                 <input
                   type="email"
                   class="form-control"
+                  value=""
                   formControlName="email"
                   id="exampleInputPassword1"
                 />
@@ -120,17 +125,18 @@
                 <input
                   type="number"
                   class="form-control"
-                  formControlName="contacts"
+                  value=""
+                  formControlName="phone_number"
                   id="exampleInputPassword1"
                 />
               </div>
-              <div class="mb-3">
+              <!-- <div class="mb-3">
                 <select class="form-select" name="gender" id="gender" formControlName="gender">
                   <option value="">Gender</option>
                   <option value="male" id="male">Male</option>
                   <option value="female" id="female">Female</option>
                 </select>
-              </div>
+              </div> -->
               <!-- <div class="form-group">
                 <input
                   type="number"

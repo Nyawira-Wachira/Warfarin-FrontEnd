@@ -9,36 +9,50 @@ import { PatientService } from 'src/app/services/patients/patient.service';
 })
 export class ReceptionComponentComponent implements OnInit {
  
-  userForm : FormGroup;
+  form : FormGroup;
   listData : any;
+  patientData : any;
+
 
   constructor(private fb:FormBuilder, private patientservice:PatientService) {
 
-    this.listData = [];
+    // this.listData = [];
+    this.patientData = [];
 
-    this.userForm = this.fb.group({
-      name: ['', Validators.required],
+
+    this.form = this.fb.group({
+      full_name: ['', Validators.required],
       age: ['', Validators.required],
       residence: ['', Validators.required],
       email: ['', Validators.required],
-      contacts: ['', Validators.required],
+      phone_number: ['', Validators.required],
       gender: ['', Validators.required]
     
 
     })
   }
 
+  // addItem(){
+  //   var formData: any = new FormData();
+  //   formData.append("full_name", this.form.get('full_name')!.value);
+  //   console.log(formData)
+  //   this.patientservice.registerpatient(formData).subscribe(res=>{
+  //          console.log(res)
+  //        })
+  // }
+
    public addItem() : void{
-     this.listData.push(this.userForm.value);
-     this.userForm.reset();
+     this.listData.append(this.form.value);
+    //  this.form.reset();
+     console.log('Testing input')
      console.log(this.listData)
-     this.patientservice.registerpatient(this.listData[0]).subscribe(res=>{
+     this.patientservice.registerpatient(this.listData).subscribe(res=>{
        console.log(res)
      })
    }
 
   reset() {
-    this.userForm.reset();
+    this.form.reset();
   }
 
   removeItem(element){
@@ -53,7 +67,7 @@ export class ReceptionComponentComponent implements OnInit {
   ngOnInit(): void {
 
     this.patientservice.getpatients().subscribe(res=>{
-      this.listData=res?res:[]
+      this.patientData=res?res:[]
     })
   }
 

@@ -110,6 +110,7 @@ export class AuthService {
        }
 
      } 
+     
      logout(): any {
        const localStorage = window.localStorage
        localStorage.removeItem('user')
