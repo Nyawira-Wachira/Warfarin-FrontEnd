@@ -10,10 +10,13 @@ import { PatientService } from 'src/app/services/patients/patient.service';
 export class DoctorComponent implements OnInit {
 
   userForm : FormGroup;
+  doseForm : FormGroup;
   listData : any;
+  doc_percentage : any;
   inr : any;
   patient : any = {
-    currency_dose: ""
+    currency_dose: "",
+    future_dose: ""
   }
 
   constructor(private fb:FormBuilder , private patientservice:PatientService) { 
@@ -21,6 +24,10 @@ export class DoctorComponent implements OnInit {
 
     this.userForm = this.fb.group({
       currency_dose: ['', Validators.required]
+    })
+
+    this.doseForm = this.fb.group({
+      doc_percentage: ['', Validators.required]
     })
   }
 
@@ -55,6 +62,25 @@ export class DoctorComponent implements OnInit {
     return parseFloat(option)|| 0
   }
 
+  getUpdatedDose(): void {
+    console.log(this.inr)
+    this.patientservice.getUpdatedDose(this.doc_percentage, this.patient.currency_dose).subscribe(res=>{
+      if (res.error){
+        
+      }
+      else {
+        // if (res.length>0 ){
+        //   const message = `${res[0].remedy}. ${res[0].return_to_clinc}`
+        //   this.patient.diagnosis=message
+        //   this.patientservice.update_patient(this.patient,this.patient.id).subscribe(res=>{
+        //     this.ngOnInit()
+        //   })
+        // }
+        console.log(res)
+      }
+    })
+  }
+
   getRemedy(): void {
     console.log(this.inr)
     this.patientservice.getRemedy(this.patient.inr_range, this.inr).subscribe(res=>{
@@ -75,6 +101,11 @@ export class DoctorComponent implements OnInit {
 
   setinr(INR: any){
     this.inr=INR
+  }
+
+  setpercentage(doc_percentage: any){
+    this.doc_percentage=this.doseForm.value
+    console.log(doc_percentage)
   }
 
 }

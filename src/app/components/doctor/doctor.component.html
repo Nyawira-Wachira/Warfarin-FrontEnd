@@ -17,9 +17,10 @@
                     <th>INR Range</th>
                     <th>Current Dose (mg)</th>
                     <th>Diagnosis</th>
-        
+                    <th>Future Dose</th>       
                     <th>Action</th>
                     <th>Diagnose</th>
+                    <th>Update Dose</th>
     
                 </tr>
             </thead>
@@ -62,12 +63,18 @@
                       <td>
                         <span>{{ item.diagnosis}}</span>
                       </td>
+                      <td>
+                        <span>{{ item.future_dose}}</span>
+                      </td>
                     <td>
-                        <button class="btn btn btn-outline-info" data-bs-toggle="modal" data-bs-target="#updateModal" (click)="update(item)">Update</button>
+                        <button class="btn btn-sm btn-outline-info" data-bs-toggle="modal" data-bs-target="#updateModal" (click)="update(item)">Update</button>
                     </td>
                     <td>
-                        <button class="btn btn btn-outline-info" data-bs-toggle="modal" data-bs-target="#diagnosisModal" (click)="update(item)">Diagnosis</button>
+                        <button class="btn btn-sm btn-outline-info" data-bs-toggle="modal" data-bs-target="#diagnosisModal" (click)="update(item)">Diagnosis</button>
                     </td>
+                    <td>
+                      <button class="btn btn-sm btn-outline-info" data-bs-toggle="modal" data-bs-target="#updateDoseModal" (click)="update(item)">Add%</button>
+                  </td>
                     
     
     
@@ -147,5 +154,44 @@
             </div>
           </div>
     </div>
+    <!-- Modal 3 -->
+
+    <div class="modal fade" id="updateDoseModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+          <div class="modal-content">
+              <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Doctor</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+  
+              <form [formGroup]="userForm">
+                  <div class="my-2 box">
+                  
+                      <div class="mb-3">
+                          <label for="exampleInputEmail1" class="form-label">Dose Percentage</label>
+                          <input 
+                          [value]="getnumber(patient?.doc_percentage)"
+                          [(ngModel)]="patient.doc_percentage"
+                          name="doc_percentage"
+                          type="number" class="form-control" formControlName="doc_percentage" id="exampleInputEmail1" aria-describedby="emailHelp">
+                          <div id="emailHelp" class="form-text"></div>
+                      </div>
+                      <div class="row">
+                          <div class="col-6">
+                              <button type="submit" class="btn btn-primary" (click)="setpercentage({doc_percentage})">Update</button>
+                          </div>
+                      </div>
+                  </div>
+              </form>          
+          </div>
+          <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          
+              </div>
+          </div>
+          </div>
+      </div>
+
     
     
