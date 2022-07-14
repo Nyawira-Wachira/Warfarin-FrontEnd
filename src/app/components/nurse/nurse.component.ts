@@ -73,6 +73,7 @@ export class NurseComponent implements OnInit {
   update_patient():void{
     this.patient.diagnosis="not diagnosed"
     this.patient.inr_range="no range"
+    this.patient.future_dose="not stated"
     this.patientservice.update_patient(this.patient,this.patient.id).subscribe(res=>{
       console.log(res)
       this.ngOnInit()
