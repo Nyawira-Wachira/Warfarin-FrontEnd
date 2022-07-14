@@ -12,12 +12,14 @@
                     <th>Gender</th>
                     <th>Temperature</th>
                     <th>Blood Pressure</th>
-                    <th>Height</th>
-                    <th>Weight</th>
+                    <th>Height (m)</th>
+                    <th>Weight (kgs)</th>
                     <th>INR Range</th>
-                    <th>Current Dose</th>
-                    <th>Action</th>
+                    <th>Current Dose (mg)</th>
                     <th>Diagnosis</th>
+        
+                    <th>Action</th>
+                    <th>Diagnose</th>
     
                 </tr>
             </thead>
@@ -48,7 +50,7 @@
                         <span>{{ item.bp }}</span>
                       </td>
                       <td>
-                        <span>{{ item.height }}</span>
+                        <span>{{ item.height }} </span>
                       </td>
                       <td>
                         <span>{{ item.weight }}</span>
@@ -57,11 +59,14 @@
                     <td>
                         <span>{{ item.currency_dose}}</span>
                       </td>
+                      <td>
+                        <span>{{ item.diagnosis}}</span>
+                      </td>
                     <td>
                         <button class="btn btn btn-outline-info" data-bs-toggle="modal" data-bs-target="#updateModal" (click)="update(item)">Update</button>
                     </td>
                     <td>
-                        <button class="btn btn btn-outline-info" data-bs-toggle="modal" data-bs-target="#diagnosisModal">Diagnosis</button>
+                        <button class="btn btn btn-outline-info" data-bs-toggle="modal" data-bs-target="#diagnosisModal" (click)="update(item)">Diagnosis</button>
                     </td>
                     
     
@@ -86,18 +91,20 @@
             <div class="modal-body">
     
                 <form [formGroup]="userForm">
-                    <div class="mt-5 box">
+                    <div class="my-2 box">
                     
-                        <div class="mb-3 mt-4">
+                        <div class="mb-3">
                             <label for="exampleInputEmail1" class="form-label">Current Dose</label>
                             <input 
-                            [value]="getnumber(patient?.current_dose)"
-                            type="number" class="form-control" formControlName="current_dose" id="exampleInputEmail1" aria-describedby="emailHelp">
+                            [value]="getnumber(patient?.currency_dose)"
+                            [(ngModel)]="patient.currency_dose"
+                            name="current_dose"
+                            type="number" class="form-control" formControlName="currency_dose" id="exampleInputEmail1" aria-describedby="emailHelp">
                             <div id="emailHelp" class="form-text"></div>
                         </div>
                         <div class="row">
                             <div class="col-6">
-                                <button type="submit" class="btn btn-primary" (click)="addItem()">Add</button>
+                                <button type="submit" class="btn btn-primary" (click)="update_patient()">Update</button>
                             </div>
                         </div>
                     </div>
@@ -123,22 +130,22 @@
                   <p>Target INR</p>
                   <div class="row">
                       <div class="col-md-3">
-                        <button type="button" class="btn btn-primary">2 - 3</button>
+                        <button type="button" class="btn btn-primary" (click)="setinr('INR 2-3')">2 - 3</button>
                       </div>
                       <div class="col-md-3">
-                        <button type="button" class="btn btn-success">2.5 - 3.5</button>
+                        <button type="button" class="btn btn-success" (click)="setinr('INR 2.5-3.5')">2.5 - 3.5</button>
                       </div>
                   </div>
                  
                 
                 </div>
                 <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"(click)="getRemedy()">Get Remedy</button>
                   <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                 </div>
               </div>
             </div>
           </div>
-          
-
     </div>
+    
     

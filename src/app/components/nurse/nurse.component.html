@@ -21,37 +21,37 @@
             <tbody>
               <tr *ngFor="let item of listData">
                 <td>
-                  <span>{{ item.id }}</span>
+                  <span>{{ item?.id }}</span>
                 </td>
                 <td>
-                  <span>{{ item.full_name }}</span>
+                  <span>{{ item?.full_name }}</span>
                 </td>
                 <td>
-                  <span>{{ item.age }}</span>
+                  <span>{{ item?.age }}</span>
                 </td>
                 <td>
-                  <span>{{ item.email }}</span>
+                  <span>{{ item?.email }}</span>
                 </td>
                 <td>
-                  <span>{{ item.residence }}</span>
+                  <span>{{ item?.residence }}</span>
                 </td>
                 <td>
-                  <span>{{ item.phone_number }}</span>
+                  <span>{{ item?.phone_number }}</span>
                 </td>
                 <td>
-                  <span>{{ item.gender }}</span>
+                  <span>{{ item?.gender }}</span>
                 </td>
                 <td>
-                  <span>{{ item.temparature }}</span>
+                  <span>{{ item?.temparature }}</span>
                 </td>
                 <td>
-                  <span>{{ item.bp }}</span>
+                  <span>{{ item?.bp }}</span>
                 </td>
                 <td>
-                  <span>{{ item.height }}</span>
+                  <span>{{ item?.height }}</span>
                 </td>
                 <td>
-                  <span>{{ item.weight }}</span>
+                  <span>{{ item?.weight }}</span>
                 </td>
                 <td>
                     <button
@@ -97,6 +97,8 @@
                 >
                 <input
                 [value]="patient?.temparature"
+                [(ngModel)]="patient.temparature"
+                name="temparature"
                   type="number"
                   class="form-control"
                   formControlName="temparature"
@@ -109,6 +111,8 @@
                 <label for="" class="form-label">Blood_Pressure</label>
                 <input
                 [value]="patient?.bp"
+                [(ngModel)]="patient.bp"
+                name="bp"
                   type="number"
                   class="form-control"
                   formControlName="bp"
@@ -121,6 +125,8 @@
                 <label for="" class="form-label">Height</label>
                 <input
                 [value]="getnumber(patient?.height)"
+                [(ngModel)]="patient.height"
+                name="height"
                   type="number"
                   class="form-control"
                   formControlName="height"
@@ -131,6 +137,8 @@
                 <label for="" class="form-label">Weight</label>
                 <input
                 [value]="getnumber(patient?.weight)"
+                [(ngModel)]="patient.weight"
+                name="weight"
                   type="number"
                   class="form-control"
                   formControlName="weight"
@@ -142,7 +150,9 @@
                   <button
                     type="submit"
                     class="btn btn-primary"
+                    (click)="update_patient()"
                   >
+
                     Update
                   </button>
                 </div>

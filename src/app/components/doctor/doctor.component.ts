@@ -11,13 +11,16 @@ export class DoctorComponent implements OnInit {
 
   userForm : FormGroup;
   listData : any;
-  patient : any;
+  inr : any;
+  patient : any = {
+    currency_dose: ""
+  }
 
   constructor(private fb:FormBuilder , private patientservice:PatientService) { 
     this.listData = [];
 
     this.userForm = this.fb.group({
-      current_dose: ['', Validators.required]
+      currency_dose: ['', Validators.required]
     })
   }
 
@@ -40,8 +43,38 @@ export class DoctorComponent implements OnInit {
 
   }
 
+  update_patient():void{
+    this.patient.diagnosis="not diagnosed"
+    this.patientservice.update_patient(this.patient,this.patient.id).subscribe(res=>{
+      console.log(res)
+      this.ngOnInit()
+    })
+  }
+
   getnumber(option:any):number {
     return parseFloat(option)|| 0
+  }
+
+  getRemedy(): void {
+    console.log(this.inr)
+    this.patientservice.getRemedy(this.patient.inr_range, this.inr).subscribe(res=>{
+      if (res.error){
+        
+      }
+      else {
+        if (res.length>0 ){
+          const message = `${res[0].remedy}. ${res[0].return_to_clinc}`
+          this.patient.diagnosis=message
+          this.patientservice.update_patient(this.patient,this.patient.id).subscribe(res=>{
+            this.ngOnInit()
+          })
+        }
+      }
+    })
+  }
+
+  setinr(INR: any){
+    this.inr=INR
   }
 
 }

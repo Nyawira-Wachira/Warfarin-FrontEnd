@@ -12,7 +12,12 @@ export class NurseComponent implements OnInit {
 
   userForm : FormGroup;
   listData : any;
-  patient:any;
+  patient:any = {
+    temparature:"",
+    bp: "",
+    height: "",
+    weight: ""
+  }
 
   constructor(private fb:FormBuilder ,private patientservice:PatientService) {
 
@@ -60,6 +65,13 @@ export class NurseComponent implements OnInit {
     this.patient=patient_
     console.log(patient_)
 
+  }
+  update_patient():void{
+    this.patient.diagnosis="not diagnosed"
+    this.patientservice.update_patient(this.patient,this.patient.id).subscribe(res=>{
+      console.log(res)
+      this.ngOnInit()
+    })
   }
 
   getnumber(option:any):number {

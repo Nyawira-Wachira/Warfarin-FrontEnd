@@ -10,7 +10,9 @@ import { PatientService } from 'src/app/services/patients/patient.service';
 export class LabFormComponent implements OnInit {
   userForm : FormGroup;
   listData : any;
-  patient:any;
+  patient :any = {
+    inr_range: ""
+  }
 
   constructor(private fb:FormBuilder, private patientservice:PatientService) { 
 
@@ -24,7 +26,6 @@ export class LabFormComponent implements OnInit {
   }
 
   public addItem() : void{
-    this.listData.push(this.userForm.value);
     this.userForm.reset();
   }
 
@@ -54,8 +55,15 @@ export class LabFormComponent implements OnInit {
     console.log(patient_)
 
   }
+  update_patient():void{
+    this.patient.diagnosis="not diagnosed"
+    this.patientservice.update_patient(this.patient,this.patient.id).subscribe(res=>{
+      console.log(res)
+      this.ngOnInit()
+    })
+  }
 
-  getnumber(option:any):number {
+  getnumber(option:any):any {
     return parseFloat(option)|| 0
   }
 

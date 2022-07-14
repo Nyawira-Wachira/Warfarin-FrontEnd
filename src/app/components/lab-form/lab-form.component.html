@@ -82,12 +82,14 @@
                         <label for="exampleInputEmail1" class="form-label">INR Range</label>
                         <input 
                         [value]="getnumber(patient?.inr_range)"
-                        type="number" class="form-control" formControlName="inr_range" id="exampleInputEmail1" aria-describedby="emailHelp">
+                        [(ngModel)]="patient.inr_range"
+                        name = "inr_range"
+                        type="text" class="form-control" formControlName="inr_range" id="exampleInputEmail1" aria-describedby="emailHelp">
                         <div id="emailHelp" class="form-text"></div>
                     </div>
                     <div class="row">
                         <div class="col-6">
-                            <button type="submit" class="btn btn-primary" (click)="addItem()">Add</button>
+                            <button type="submit" class="btn btn-primary" (click)="update_patient()">Update</button>
                         </div>
                         <div class="col-6">
                             <button type="reset" class="btn btn-primary" (click)="reset()">Reset</button><br><br>

@@ -42,12 +42,13 @@ export class ReceptionComponentComponent implements OnInit {
   // }
 
    public addItem() : void{
-     this.listData.append(this.form.value);
     //  this.form.reset();
      console.log('Testing input')
-     console.log(this.listData)
-     this.patientservice.registerpatient(this.listData).subscribe(res=>{
+     console.log(this.form)
+     this.patientservice.registerpatient(this.form.value).subscribe(res=>{
        console.log(res)
+       this.reset()
+       this.ngOnInit()
      })
    }
 
@@ -64,10 +65,18 @@ export class ReceptionComponentComponent implements OnInit {
 
   }
 
+  deletepatient(id:any) {
+    this.patientservice.delete_patient(id).subscribe(res=>{
+      console.log(res)
+      this.ngOnInit()
+    })
+  }
+
   ngOnInit(): void {
 
     this.patientservice.getpatients().subscribe(res=>{
       this.patientData=res?res:[]
+      console.log(res)
     })
   }
 
