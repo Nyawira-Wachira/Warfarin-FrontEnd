@@ -8,11 +8,10 @@ import { LabregisterService } from 'src/app/services/labregister.service';
 })
 export class LabtechregisterComponent implements OnInit {
 
-  name:string =''
   email:string =''
   password:string=''
   confirm_password:string=''
-  username:string= ''
+  full_name:string= ''
 
   constructor(private labregisterservice:LabregisterService) { }
 
@@ -25,17 +24,16 @@ export class LabtechregisterComponent implements OnInit {
       
     }
 
-    else if (this.name === '' || this.email === '' || this.username === ''){
+    else if (this.email === '' || this.full_name === ''){
       alert ('Please fill in all the fields')
     }
 
     else {
       this.labregisterservice.registerlabtech({
-        name:this.name, 
         email: this.email,
         password:this.password,
         profile:{
-          username:this.username
+          full_name:this.full_name
         }
       }).subscribe(res=>{
         if (res.status=== 200){

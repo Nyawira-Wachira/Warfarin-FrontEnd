@@ -10,7 +10,7 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
+        <!-- <li class="nav-item">
           <a class="nav-link active" aria-current="page" [routerLink]="['/reception']">Reception</a>
         </li>
         <li class="nav-item">
@@ -21,11 +21,10 @@
         </li>
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" [routerLink]="['/doctor']">Doctor</a>
-        </li>
+        </li> -->
       </ul>
       <div class="d-flex">
         <a class="nav-link active"  *ngIf="!loggedinstatus"  aria-current="page" [routerLink]="['/login']"><i class="fa-solid fa-right-to-bracket" style="color:black;font-size: 30px; margin-right: 7px;"></i><span style="color:black; font-family: 'Gulzar', serif; font-size: 20px;">Login</span></a>
-        <!-- <a class="nav-link active"   *ngIf="!loggedinstatus" aria-current="page" [routerLink]="['/register']">Register</a> -->
         <button class="btn btn-small shadow-none px-3 ms-2"  *ngIf="loggedinstatus" (click)="logout()"><i class="fa-solid fa-right-from-bracket" style="font-size: 30px; margin-right: 5px;"></i><span style="font-family: 'Gulzar', serif; font-size: 20px;">Logout</span></button>
 
       </div> 

@@ -20,6 +20,7 @@ import { ReceptionregisterComponent } from './admin/register/receptionregister/r
 import { LabtechregisterComponent } from './admin/register/labtechregister/labtechregister.component';
 import { DoctorregisterComponent } from './admin/register/doctorregister/doctorregister.component';
 import { DoctorComponent } from './components/doctor/doctor.component';
+import { CardComponent } from './components/card/card.component';
 
 
 @NgModule({
@@ -39,7 +40,8 @@ import { DoctorComponent } from './components/doctor/doctor.component';
     ReceptionregisterComponent,
     LabtechregisterComponent,
     DoctorregisterComponent,
-    DoctorComponent
+    DoctorComponent,
+    CardComponent
   ],
   imports: [
     BrowserModule,

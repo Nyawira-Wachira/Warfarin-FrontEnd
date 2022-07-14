@@ -8,11 +8,10 @@ import { DoctorregisterService } from 'src/app/services/doctorregister.service';
 })
 export class DoctorregisterComponent implements OnInit {
 
-  name:string =''
   email:string =''
   password:string=''
   confirm_password:string=''
-  username:string= ''
+  full_name:string= ''
 
   constructor(private doctorregisterservice:DoctorregisterService) { }
 
@@ -25,17 +24,16 @@ export class DoctorregisterComponent implements OnInit {
       
     }
 
-    else if (this.name === '' || this.email === '' || this.username === ''){
+    else if (this.email === '' || this.full_name === ''){
       alert ('Please fill in all the fields')
     }
 
     else {
       this.doctorregisterservice.registerdoctor({
-        name:this.name, 
         email: this.email,
         password:this.password,
         profile:{
-          username:this.username
+          full_name:this.full_name
         }
       }).subscribe(res=>{
         if (res.status=== 200){
