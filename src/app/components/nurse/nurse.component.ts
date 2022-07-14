@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AuthService } from 'src/app/services/auth.service';
 import { PatientService } from 'src/app/services/patients/patient.service';
 
 @Component({
@@ -19,7 +20,7 @@ export class NurseComponent implements OnInit {
     weight: ""
   }
 
-  constructor(private fb:FormBuilder ,private patientservice:PatientService) {
+  constructor(private fb:FormBuilder ,private patientservice:PatientService, private auth:AuthService) {
 
     this.listData = [];
 
@@ -52,6 +53,9 @@ export class NurseComponent implements OnInit {
 
 
   ngOnInit(): void {
+
+    this.auth.isnurseonly()
+
     this.patientservice.getpatients().subscribe(res=>{
       this.listData=res?res:[]
       console.log(res)

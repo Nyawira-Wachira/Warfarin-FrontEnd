@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AuthService } from 'src/app/services/auth.service';
 import { PatientService } from 'src/app/services/patients/patient.service';
 
 @Component({
@@ -10,11 +11,12 @@ import { PatientService } from 'src/app/services/patients/patient.service';
 export class LabFormComponent implements OnInit {
   userForm : FormGroup;
   listData : any;
+  inr_range: any=""
   patient :any = {
     inr_range: ""
   }
 
-  constructor(private fb:FormBuilder, private patientservice:PatientService) { 
+  constructor(private fb:FormBuilder, private patientservice:PatientService ,private auth:AuthService) { 
 
     this.listData = [];
 
@@ -43,6 +45,11 @@ export class LabFormComponent implements OnInit {
   }
 
   ngOnInit(): void {
+
+    this.auth.islabtechonly()
+
+
+    this.listData=[]
     this.patientservice.getpatients().subscribe(res=>{
       this.listData=res?res:[]
       console.log(res)
@@ -57,6 +64,7 @@ export class LabFormComponent implements OnInit {
   }
   update_patient():void{
     this.patient.diagnosis="not diagnosed"
+    this.patient.inr_range=this.inr_range
     this.patientservice.update_patient(this.patient,this.patient.id).subscribe(res=>{
       console.log(res)
       this.ngOnInit()

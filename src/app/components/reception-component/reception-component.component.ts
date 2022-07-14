@@ -1,5 +1,6 @@
 import { Component, OnInit, Output, EventEmitter} from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AuthService } from 'src/app/services/auth.service';
 import { PatientService } from 'src/app/services/patients/patient.service';
 
 @Component({
@@ -14,7 +15,7 @@ export class ReceptionComponentComponent implements OnInit {
   patientData : any;
 
 
-  constructor(private fb:FormBuilder, private patientservice:PatientService) {
+  constructor(private fb:FormBuilder, private patientservice:PatientService , private auth:AuthService) {
 
     // this.listData = [];
     this.patientData = [];
@@ -73,6 +74,8 @@ export class ReceptionComponentComponent implements OnInit {
   }
 
   ngOnInit(): void {
+
+    this.auth.isreceptiononly()
 
     this.patientservice.getpatients().subscribe(res=>{
       this.patientData=res?res:[]

@@ -21,7 +21,7 @@
         </thead>
         <tbody>
             <tr *ngFor="let item of listData">
-                <td>
+                  <td>
                     <span>{{ item.full_name }}</span>
                   </td>
                   <td>
@@ -81,8 +81,8 @@
                     <div class="mb-3 mt-4">
                         <label for="exampleInputEmail1" class="form-label">INR Range</label>
                         <input 
-                        [value]="getnumber(patient?.inr_range)"
-                        [(ngModel)]="patient.inr_range"
+                        [value]="inr_range"
+                        [(ngModel)]="inr_range"
                         name = "inr_range"
                         type="text" class="form-control" formControlName="inr_range" id="exampleInputEmail1" aria-describedby="emailHelp">
                         <div id="emailHelp" class="form-text"></div>

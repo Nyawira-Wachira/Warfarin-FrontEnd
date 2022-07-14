@@ -25,7 +25,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let item of listData">
+                <tr *ngFor="let item of listData.sort()">
                     <td>
                         <span>{{ item.full_name }}</span>
                       </td>
@@ -165,21 +165,21 @@
           </div>
           <div class="modal-body">
   
-              <form [formGroup]="userForm">
+              <form [formGroup]="doseForm">
                   <div class="my-2 box">
                   
                       <div class="mb-3">
                           <label for="exampleInputEmail1" class="form-label">Dose Percentage</label>
                           <input 
-                          [value]="getnumber(patient?.doc_percentage)"
-                          [(ngModel)]="patient.doc_percentage"
+                          [value]="getnumber(doc_percentage)"
+                          [(ngModel)]="doc_percentage"
                           name="doc_percentage"
                           type="number" class="form-control" formControlName="doc_percentage" id="exampleInputEmail1" aria-describedby="emailHelp">
                           <div id="emailHelp" class="form-text"></div>
                       </div>
                       <div class="row">
                           <div class="col-6">
-                              <button type="submit" class="btn btn-primary" (click)="setpercentage({doc_percentage})">Update</button>
+                              <button type="submit" class="btn btn-primary" (click)="getUpdatedDose()">Update</button>
                           </div>
                       </div>
                   </div>

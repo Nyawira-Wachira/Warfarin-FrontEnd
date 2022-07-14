@@ -10,18 +10,21 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <!-- <li class="nav-item">
-          <a class="nav-link active" aria-current="page" [routerLink]="['/reception']">Reception</a>
+        <li class="nav-item" *ngIf="user?.is_receptionist">
+          <a class="nav-link active" aria-current="page" [routerLink]="['/reception']">Dashboard</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" [routerLink]="['/nurse']">Nurse</a>
+        <li class="nav-item" *ngIf="user?.is_nurse">
+          <a class="nav-link active" aria-current="page" [routerLink]="['/nurse']">Dashboard</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" [routerLink]="['/lab']">Lab</a>
+        <li class="nav-item" *ngIf="user?.is_labtech">
+          <a class="nav-link active" aria-current="page" [routerLink]="['/lab']">Dashboard</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" [routerLink]="['/doctor']">Doctor</a>
-        </li> -->
+        <li class="nav-item" *ngIf="user?.is_doctor">
+          <a class="nav-link active" aria-current="page" [routerLink]="['/doctor']">Dashboard</a>
+        </li>
+      <li class="nav-item" *ngIf="user?.is_admin">
+        <a class="nav-link active" aria-current="page" [routerLink]="['/admin']">Dashboard</a>
+      </li>
       </ul>
       <div class="d-flex">
         <a class="nav-link active"  *ngIf="!loggedinstatus"  aria-current="page" [routerLink]="['/login']"><i class="fa-solid fa-right-to-bracket" style="color:black;font-size: 30px; margin-right: 7px;"></i><span style="color:black; font-family: 'Gulzar', serif; font-size: 20px;">Login</span></a>

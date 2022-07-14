@@ -75,16 +75,65 @@ export class AuthService {
 
      }
 
-    //  isadminonly(): void {
-    //   const {user} = this.getuserdetails()
-    //   if (user?.is_admin) {
-    //     this.router.navigate(['/admin'])
-    //   }
-    //   else {
-    //     this.router.navigate(['/'])
-    //   }
+     getusertype(): any {
+      const {user} = this.getuserdetails()
+      return user
+     }
 
-    //  }
+     isadminonly(): void {
+      const {user} = this.getuserdetails()
+      if (user?.is_admin) {
+        this.router.navigate(['/admin'])
+      }
+      else {
+        this.router.navigate(['/'])
+      }
+
+     }
+
+     isreceptiononly(): void {
+      const {user} = this.getuserdetails()
+      if (user?.is_receptionist || user?.is_admin) {
+        this.router.navigate(['/reception'])
+      }
+      else {
+        this.router.navigate(['/'])
+      }
+
+     }
+
+     isnurseonly(): void {
+      const {user} = this.getuserdetails()
+      if (user?.is_nurse || user?.is_admin) {
+        this.router.navigate(['/nurse'])
+      }
+      else {
+        this.router.navigate(['/'])
+      }
+
+     }
+
+     islabtechonly(): void {
+      const {user} = this.getuserdetails()
+      if (user?.is_labtech || user?.is_admin) {
+        this.router.navigate(['/lab'])
+      }
+      else {
+        this.router.navigate(['/'])
+      }
+
+     }
+
+     isdoctoronly(): void {
+      const {user} = this.getuserdetails()
+      if (user?.is_doctor || user?.is_admin) {
+        this.router.navigate(['/doctor'])
+      }
+      else {
+        this.router.navigate(['/'])
+      }
+
+     }
 
      redirecttotherightpage():void{
        const login_status=this.getloginstatus()
@@ -103,7 +152,7 @@ export class AuthService {
         this.router.navigate(['/doctor'])
        }
        else if (user?.is_admin){
-        this.router.navigate(['/home'])
+        this.router.navigate(['/admin'])
        }
        else {
         this.router.navigate(['/login'])

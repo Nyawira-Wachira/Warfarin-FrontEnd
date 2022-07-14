@@ -15,7 +15,7 @@ export class PatientService {
   all_patients_url = `${BASE_URL}api/patient/all/`
   update_patient_url = `${BASE_URL}api/update/patient/`
   remedy_url = (INR,range)=>`${BASE_URL}api/getpatient/remedy/?inr_range=${range}&inr_protocol=${INR}`
-  update_dose_url = (DOSE,percentage)=>`${BASE_URL}api/getpatient/remedy/?current_dose=${DOSE}&doc_percentage=${percentage}`
+  update_dose_url = (DOSE,percentage)=>`${BASE_URL}api/getfuture/dose/?current_dose=${DOSE}&doc_percentage=${percentage}`
 
   constructor(private http:HttpClient, private auth:AuthService) { }
 
@@ -71,7 +71,7 @@ export class PatientService {
     }).pipe(res=>res)
   }
 
-  getUpdatedDose(dose:string, percentage:any): Observable<any>{
+  getUpdatedDose(dose:any, percentage:any): Observable<any>{
     const url = this.update_dose_url(percentage,dose)
     console.log(url)
     const {token} = this.auth.getuserdetails()
