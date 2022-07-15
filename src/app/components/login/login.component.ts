@@ -14,11 +14,9 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
     this.authService.redirecttotherightpage()
-    // const loginstatus = this.authService.getloginstatus()
-    // console.log(loginstatus)
+
   }
   login(){
-    // console.log(this.email)
     this.authService.login({
       email:this.email,
       password:this.password

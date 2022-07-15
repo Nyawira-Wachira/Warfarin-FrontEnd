@@ -1,16 +1,17 @@
-<ul class="nav justify-content-center">
+<ul class="nav justify-content-center mt-4" id="nav">
     <li class="nav-item">
-      <a class="nav-link" [routerLink]="['register/receptionregister']">Register Receptionist</a>
+      <button type="button" class="btn btn-outline-info"><a class="nav-link" [routerLink]="['register/receptionregister']">Register Receptionist</a></button>
     </li>
     <li class="nav-item">
-        <a class="nav-link" [routerLink]="['register/nurseregister']">Register Nurse</a>
+      <button type="button" class="btn btn-outline-info"><a class="nav-link" [routerLink]="['register/nurseregister']">Register Nurse</a></button>
     </li>
     <li class="nav-item">
-        <a class="nav-link" [routerLink]="['register/labtechregister']">Register Lab Tech</a>
+      <button type="button" class="btn btn-outline-info"><a class="nav-link" [routerLink]="['register/labtechregister']">Register Lab Tech</a></button>
     </li>
     <li class="nav-item">
-        <a class="nav-link" [routerLink]="['register/doctorregister']">Register Doctor</a>
+      <button type="button" class="btn btn-outline-info"><a class="nav-link" [routerLink]="['register/doctorregister']">Register Doctor</a></button>
     </li>
   </ul>
 
 <router-outlet></router-outlet>
+

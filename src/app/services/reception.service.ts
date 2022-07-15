@@ -27,7 +27,7 @@ rooturl="http://127.0.0.1:8000"
   }
   updatePatient(id)
   {
-    // return this.http.put('${this.url}/${id}',data)
+
   }
 
 }

@@ -11,8 +11,6 @@ import { HomeComponent } from './components/home/home.component';
 import { NurseComponent } from './components/nurse/nurse.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ReceptionComponentComponent } from './components/reception-component/reception-component.component';
-import { DateCountPipe } from './date-count.pipe';
-
 import { LabFormComponent } from './components/lab-form/lab-form.component';
 import { AdminComponent } from './admin/admin/admin.component';
 import { NurseregisterComponent } from './admin/register/nurseregister/nurseregister.component';
@@ -33,7 +31,6 @@ import { CardComponent } from './components/card/card.component';
     HomeComponent,
     NurseComponent,
     ReceptionComponentComponent,
-    DateCountPipe,
     LabFormComponent,
     AdminComponent,
     NurseregisterComponent,
