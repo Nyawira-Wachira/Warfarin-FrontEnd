@@ -20,14 +20,14 @@ body {
 } */
 #loglog{
     background-color: #FFE0E3;
-    /* background-size: cover; */
+    background-size: cover;
 
 
 }
-/* #mmm{
-    margin-left: 2%;
-    float: left;
-} */
+#mmm{
+    margin-left: 4%;
+   
+}
 button{
     background-color:#7BDFF2;
     width: 100%;
@@ -36,8 +36,8 @@ button{
 }
 
 #lmm{
-    font-family: 'Edu TAS Beginner', cursive;
-    font-size: 50px;
+    font-family: 'Tinos', serif;
+    font-size: 45px;
  
 }
 
